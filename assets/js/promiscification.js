@@ -34,3 +34,25 @@ const shredCat = new Promise(executor);
 shredCat
   .then((data) => console.log("data :>> ", data))
   .catch((err) => console.log("err :>> ", err));
+
+// промісифікувати setTimeout
+// setTimeout(cb, 1000)
+// delay(1000).then(cb)
+
+function delay(ms) {
+  const executor = function (res, rej) {
+    if (typeof ms !== "number") {
+      rej(new TypeError("ms must be number"));
+    }
+    if (ms < 0 || !Number.isInteger(ms)) {
+      rej(new RangeError("ms must be positive integer value"));
+    }
+    setTimeout(res, ms);
+  };
+  return new Promise(executor);
+}
+
+// setTimeout(()=>console.log('action is over'), 1000)
+delay(1000)
+  .then(() => console.log("action is over"))
+  .catch((err) => console.log("err :>> ", err));
