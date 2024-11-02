@@ -130,17 +130,33 @@ console.log(
   "Anna-Maria".match(/^[A-Z][a-z]{1,19}(-[A-Z][a-z]{1,19})?$/)
 );
 
-//Знайти цитати 
+//Знайти цитати
 // ? переводить квантифікатор з жадного режиму в лінивий
 console.log("I say 'yes', but think adn say 'no'".match(/'.*?'/g));
 
 // Виокремити речення
 // Fhjhgjhgkgk hjyghk khgkj. JFjhkhgkj jhgj kjhj.
 
-console.log("Fhjhgjhgkgk hjyghk khgkj. JFjhkhgkj jhgj kjhj.".match(/[A-Z].*?\./g));
+console.log(
+  "Fhjhgjhgkgk hjyghk khgkj. JFjhkhgkj jhgj kjhj.".match(/[A-Z].*?\./g)
+);
 
-console.log('I bouught 10 apple by 1$'.match(/\d+(?=\$)/g))
+console.log("I bouught 10 apple by 1$".match(/\d+(?=\$)/g));
 
 // 8-16 A a 0 !@#$%^&*.
 
-console.log('Qq1.qqqq'.match(/^(?=.*[A-Z].*)(?=.*[a-z].*)(?=.*\d.*)(?=.*[!@#$%^&.].*).{8,16}$/));
+console.log(
+  "Qq1.qqqq".match(
+    /^(?=.*[A-Z].*)(?=.*[a-z].*)(?=.*\d.*)(?=.*[!@#$%^&.].*).{8,16}$/
+  )
+);
+
+// Методи з використання регулярок
+
+// replace
+const str1 = "Hgjhgkjd     lsdfihodsif  sidofihd   sidfodsif  ksdf ksjdfh";
+const str1Result = str1.replace(/\s{2,}/g, " ");
+
+// Прибрати ненормативну лексику з повідомлень (fuck, ass, asshole)
+const str2 = "Fuck you. )))) You are asshole";
+const str2Result = str2.replace(/(f+u+c+k+|a+s+s+h+o+l+e+)/gi, "####");
