@@ -129,3 +129,18 @@ console.log(
   '"Anna-Maria"',
   "Anna-Maria".match(/^[A-Z][a-z]{1,19}(-[A-Z][a-z]{1,19})?$/)
 );
+
+//Знайти цитати 
+// ? переводить квантифікатор з жадного режиму в лінивий
+console.log("I say 'yes', but think adn say 'no'".match(/'.*?'/g));
+
+// Виокремити речення
+// Fhjhgjhgkgk hjyghk khgkj. JFjhkhgkj jhgj kjhj.
+
+console.log("Fhjhgjhgkgk hjyghk khgkj. JFjhkhgkj jhgj kjhj.".match(/[A-Z].*?\./g));
+
+console.log('I bouught 10 apple by 1$'.match(/\d+(?=\$)/g))
+
+// 8-16 A a 0 !@#$%^&*.
+
+console.log('Qq1.qqqq'.match(/^(?=.*[A-Z].*)(?=.*[a-z].*)(?=.*\d.*)(?=.*[!@#$%^&.].*).{8,16}$/));
